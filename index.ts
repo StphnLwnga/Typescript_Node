@@ -4,17 +4,16 @@ import * as mongoose from 'mongoose';
 import * as bodyParser from 'body-parser';
 import routes from './src/routes/crmRoutes';
 import Messenger from "./src/controllers/createMsg";
+import { Settings } from './settings';
 
 dotenv.config();
 
 const app = express();
-const PORT: number = 3000;
-const db: string = `mongodb://localhost/typescript_node`;
 
-let messages = new Messenger(PORT);
+let messages = new Messenger(Settings.PORT);
 
 // mongoose connection
-mongoose.connect(db, {
+mongoose.connect(Settings.db, {
     useMongoClient: true,
 });
 
@@ -27,6 +26,6 @@ routes(app);
 // serving static files
 app.use(express.static('public'));
 
-app.listen(PORT, () =>
+app.listen(Settings.PORT, () =>
     console.log(messages.messagePrint())
 );

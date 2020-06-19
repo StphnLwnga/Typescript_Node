@@ -6,7 +6,8 @@
 		"module": "CommonJS",
 		"allowJs": true,
 		"checkJs": true,
-		"allowSyntheticDefaultImports": true
+		"allowSyntheticDefaultImports": true,
+		"experimentalDecorators": true
 	},
 	"include": [
 		"./src/**/*",

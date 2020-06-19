@@ -19,6 +19,12 @@ exports.getContacts = (req, res) => {
             res.send(err);
         }
         res.json(contact);
+        for (let item of contact) {
+            console.log(item);
+        }
+        for (let itemPosition in contact) {
+            console.log(itemPosition);
+        }
     });
 };
 exports.getContactWithID = (req, res) => {
